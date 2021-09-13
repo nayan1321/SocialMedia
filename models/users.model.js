@@ -30,10 +30,7 @@ const userSchema = new mongoose.Schema(
       UserName: {
          type: String,
          required: true,
-         unique: {
-            args: true,
-            msg: "UserName Already exists...",
-         },
+         unique: true,
          validate(value) {
             if (!validator.isLowercase(value)) {
                throw new Error("Please Enter in LowerCase...");
@@ -61,10 +58,7 @@ const userSchema = new mongoose.Schema(
       UserMail: {
          type: String,
          required: true,
-         unique: {
-            args: true,
-            msg: "USerMail Already exists...",
-         },
+         unique: true,
          validate(value) {
             if (!validator.isEmail(value)) {
                throw new Error("Enter Valid Email Address...");
