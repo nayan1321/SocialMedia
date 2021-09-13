@@ -29,8 +29,8 @@ const userSchema = new mongoose.Schema(
       },
       UserName: {
          type: String,
-         required: true,
          unique: true,
+         required: true,
          validate(value) {
             if (!validator.isLowercase(value)) {
                throw new Error("Please Enter in LowerCase...");
@@ -48,17 +48,14 @@ const userSchema = new mongoose.Schema(
       },
       MobileNo: {
          type: Number,
+         unique: true,
          required: true,
-         unique: {
-            args: true,
-            msg: "Email address already in use!",
-         },
          validate: [validateMobileNo, "Please Valid Mobile No..."],
       },
       UserMail: {
          type: String,
-         required: true,
          unique: true,
+         required: true,
          validate(value) {
             if (!validator.isEmail(value)) {
                throw new Error("Enter Valid Email Address...");
